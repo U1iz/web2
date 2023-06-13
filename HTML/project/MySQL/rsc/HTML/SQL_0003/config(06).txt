@@ -1,0 +1,71 @@
+7.2.2.6 使用T-SQL语言进行查询
+
+
+
+判断题
+
+SELECT语句中WHERE子句和HAVING子句的作用是一致的。
+
+在查询中很少被引用的列上创建索引可以极大的提高查询性能。
+
+如果使用别名来代表一个表，那么在定义别名后的所有查询语句中，都必须使用别名来代表表的全名，否则系统会出错。
+
+
+
+单选题
+
+
+数据查询语句SELECT的语法中，必不可少的子句是()；
+SELECT 和 WERE
+SELECT 和 FROM
+FROMD
+SELECT
+
+SQL语言的数据操纵语言包括SELECT, INSERT, UPDATE和DELETE等，其中最重要的也是使用最频繁的语句是()。
+SELECT
+INSERT
+UPDATE
+DELETE
+
+有这样三个表:
+学生表S、课程表c和学生选课表SC，
+它们的结构如下，
+S:S#，SN，SEX，AGE，DEPT、C:C#，CN、SC:S#，C#，GRADE。
+其中:S#为学号，SN为姓名，SEX为性别，AGE为年龄，DEFT为系别，C#为课程号，CN为课程名，GRADE为成绩。
+要求如下:检索所有比"王华"年龄大的学生姓名、年龄和性别。正确的SELECT语句是()。
+
+SELECT SN,AGE,SEX FROM S WHERE AGE>(SELECT AGE FROM S WHERE SN = "王华")
+SELECT SN,AGE,SEX FROM S HHERE SN = "王华"
+SELECT SN,AGE,SEX FROM S WHERE AGE>(SELECT AGE WHERE SN = "王华")
+SELECT SN,AGE,SEX FROM S WHERE AGE>王华.AGE
+
+SQL语言具有两种使用方式，分别称为交互式SQL和() 。
+提示式SQL
+多用户SQL
+嵌入式SQL
+解释式SQL
+
+在SQL SERVER中，与WERE G BETWEEN60AND100语句等价的子句是()。
+WHERE G>60 AND G<100
+WHERE G>=60 AND G<100
+WHERE G>60 AND G<=100
+WHERE G>=60 AND G<=100
+
+在SQL SERVER中，WHERE子句的模糊查询条件表达式里,可以匹配零至多个字符的通配符是()。
+%
+*
+_
+?
+
+在SQL SERVER中,已知执行语句:Selectcount (price) , sum (price) fromprice返回的结果是10和750，那么执行语句: Selectavg (price) fronmprice，返回的结果是()。
+5
+75
+1500
+750
+
+在SELECT语句中正确的语法顺序如下()。
+where，having，groupby，orderby
+having，where，groupby，orderby
+where，orderby，groupby，having
+where，groupby，having，orderby
+

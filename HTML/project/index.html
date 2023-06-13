@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2022 网课笔记整理</title>
+    <style>
+        html {
+            font-size: 24px;
+        }
+
+        div,
+        .cont {
+            position: relative;
+        }
+
+        div,
+        .ctr,
+        .cont::before,
+        .link::before {
+            width: 100%;
+        }
+
+        .ctr,
+        #tit {
+            text-align: center;
+        }
+
+
+        div {
+            min-width: 12rem;
+        }
+
+        .ctr {
+            height: 100%;
+        }
+
+        .cont {
+            margin: 0;
+            padding: 1rem 0;
+            transition: all 0.3s;
+        }
+
+        .cont::before,
+        .link::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            transition: all 0.3s;
+        }
+
+        .cont::before {
+            height: 0.06rem;
+            background-color: #000;
+            z-index: -1;
+        }
+
+
+        .link::before {
+            height: 0;
+            background-color: rgb(12, 125, 255);
+            z-index: 2;
+        }
+
+        .link:hover::before {
+            top: 0;
+            height: 100%;
+        }
+
+        .link:active::before {
+            background-color: rgba(0, 0, 0, 0.7)
+        }
+
+        .link:hover {
+            color: #fff;
+        }
+
+        .link:hover::before,
+        .cont:hover::before {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .link {
+            color: #222;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        #tit {
+            color: #000;
+            font-size: 2rem;
+            margin-top: 6.4rem;
+            margin-bottom: 3.2rem;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+            document.body.remove();
+            let body = document.createElement('body');
+            setTimeout(function () {
+                document.documentElement.appendChild(body);
+                document.body.innerHTML =
+                    '<div> <h1 id="tit"></h1> <ol class="ctr"> <li class="cont"><a href="计算机网络基础/index.html" class="link" target="_blank">计算机网络基础</a></li> <li class="cont"><a href="Unity/index.html" class="link" target="_blank">Unity</a></li> <li class="cont"><a href="MySQL/index.html" class="link" target="_blank">MySQL</a></li> </ol> </div>'
+                let t = document.getElementById("tit");
+                t.innerText = document.querySelector('title').innerText;
+
+                let script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = 'MySQL/rsc/lib/add_CSSNode.js';
+                document.body.appendChild(script);
+            }, 100)
+        });
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+多选题
+
+
+
+面的语句执行时不会出现错误的有()。
+SELECT ename, job, sal FROM EMP WHERE deptno ALL (SELECT deptno FROM dept WHERE dname LIKE‘A%’);
+SELECT ename, job, sal FROM EMP WHERE deptno=ANY (SELECT deptno FROM dept WHERE dname LIKE‘A%’);
+SELECT ename, job, sal FROM EMP WHERE deptno ANY (SELECT deptno FROM dept WHERE dname LIKE‘A%’);
+SELECT ename. job, sal FROM EMP WHERE deptno IN |(SELECT deptno FROM dept WHERE dname LIKE‘A%’);
+
+数据库中有两张表student: stuid stuname, stuage、score: stuid subject, marks.请分析下面哪些查询可查找出参加过考试的学生姓名()?
+Select stuname from student where stuid in (select stuid from score)
+Select stuname from student, score where student.stuid = score.stuid
+select stuname from student left outer join score on student.stuid = score.stuid
+Select stuname from student where exists (select * from score where student.stuid = score.stuid)
+
+关于子查询，以下说法正确的是()。
+一般来说，表连接都可以用子查询替换
+一般来说，子查询都可以用表连接替换
+相对于表连接，子查询适合于作为查询的筛选条件
+相对于表连接，子查询适合于查看对表的数据
+
+
+填空题
+
+Select查询语句查询的结果被存储在一个结果表中称为()。
+在Select语句中，如果要从某个列中仅选取唯一不同的值，我们需要添加()关键字。
+
+
+7.3         数据库管理系统维护
+7.3.1       数据库管理
+7-3.1-1     数据库的安装、配置、调优
+
+
+
+判断题
+
+
+数据库的优化中应尽量避免在where子句中对字段进行null值判断，否则将导致引擎放弃使用索引而进行全表扫描。
+多表连接查询，查询期间占用多个表不会造成事务占用资源的时间过长，从而导致数据阻塞。
+SELECTINOT语句会导致表锁定，阻止其他用户访问该表。
+
+
+
+单选题
+
+
+针对不合理的数据文件设置，影响事务处理的性能，以下哪一项符合这个说法。()
+频繁操作数据库，导致日志文件增长过快。
+查询操作比较频繁，系统数据库Tempadb的大小设置不合理
+大量插入数据，导致数据文件增长过快。
+以上都是。
+
+以下哪项操作不可以用来优化数据库()。
+使用非关键字段建立索引。
+使用存储过程。
+备份数据库和清除垃圾数据。
+sql语句语法的优化。
+
+在与应用程序交换数据时，在数据库服务器上需要额外的CPU资源来压缩和解压缩数据。您可以在以下数据库对象上配置行和页压缩。()
+存储为堆的整个表。
+存储为聚集索引的整个表。
+整个非聚集索引。
+以上都是
+
+以下哪一项可以用来优化数据库性能。
+减少数据的访问
+减少交互次数
+减少CPU及内存开销
+以上都是
+
+
+
+多选题
+
+
+以下哪些操作可以提高教据库的安全性()。
+关闭不必要的端口
+关闭非必要的服务
+禁止不使用的协议
+安全的设置账户
+
+以下哪几项技术可以用来优化数据库性能()。
+调整数据库结构设计
+调整应用程序结构设计
+调整数据库SQL语句
+调整服务器内存分配
+
+
+
+填空题
+
+
+为保障Access数据的安全性，建议把Access数据库重命名成一个比较复杂的名字，不要使用默认的()扩展名。
+
+如果使用到了临时表，在存储过程的最后务必将所有的临时表显式册除，先()，然后droptable，这样可以避免系统表的较长时间锁定。
+
+数据库生命周期管理()是一种基于策略的方法，用于管理()和数据资产。
+
+每个SQL SERVER数据库都具有()，用于记录所有事务以及每个事务对数据库所做的修改。
+
+
+------------------------------
+
+7.3.1.2     导入和导出数据库
+
+
+
+判断题
+
+
+在目标数据库导入时需要创建与导出时相同的用户名(尽量一致)，并赋予不低于导出时用户的权限。
+
+在导入数据库时，若本地数据库已存在相同的表空间，则只能进行表空间扩充。
+
+
+
+单选题
+
+现在需要将数据导入到 SQL Server 数据库，并且已经开始接收包含记录全国各商店销售事务的文本文件，每列中的数据使用分号分隔。如何将文件导入到销售数据库中?()
+创建一个自定义格式文件，指定分号为行终止符。
+使用bcp命令，指定分号为字段终止符。
+使用含有默认参数的bcp命令。
+使用含有默认参数的 BULK INSERT语句。
+
+地方销售办事处需要将SQL Server数据库的数据进行导入导出。现在总部要求提供一份包含地方销售办事处所在区域的最新客户联系信息的文本文件。总部的数据库管理员要求按照州/省、姓和名排序数据列。如何操作?()
+在bcp out命令的ORDER提示中指定州/省、姓和名
+创建一个导出操作的格式文件。
+在bcpqueryout命令的ORDER BY子句中指定州/省、姓和名
+将数据复制到含有州/省、姓和名的聚集索引的新表中。导出数据。
+
+
+
+多选题
+
+
+以下哪些类型的数据文件可以导入导出到SQL SERVER数据库中()。
+SQL SERVER
+文本文件
+Accs、Excel
+其他OLEDB访问接口
+
+
+
+填空题
+
+
+如果向目标教据库或文件写入数据，需要对目标表具有（）权限。

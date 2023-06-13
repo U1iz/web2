@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>这个 “计算机网络基础” 的课简直就是浪费时间</title> -->
+    <title>你未正确载入js，请确保目录结构无误！</title>
+    <style>
+        html {
+            overflow-x: hidden;
+        }
+
+        br::selection {
+            background-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas class="selectUnable"></canvas>
+    <canvas class="selectUnable">你的浏览器不支持canvas</canvas>
+    <script src="./rsc/lib/lib.js"></script>
+    <script src="./rsc/lib/add_formNode.js"></script>
+    <script>
+        let js = document.createElement('script');
+        let js2 = document.createElement('script');
+
+        js.src = 'js/execute_for_RootPage.js';
+        js2.src = 'js/spiderWeb.js';
+
+        if (localStorage.getItem("equipmentType") == 1) {
+            js.src = './js/execute_for_RootPage_old.js';
+        } else {
+            document.body.appendChild(js2);
+
+            let style = document.createElement('style');
+            style.innerText =
+                `#audioCtr{position:relative;top:1rem;left:2rem;width:8rem;height:1.6rem;}#audioCtr>audio{width:100%;height:100%;opacity:0;background-color:transparent;}#audioCtr::before{content:'';position:absolute;top:0;left:0.2rem;width:1.6rem;height:1.6rem;border-radius:2rem;background-color:#dfdfdf;}#audioCtr>span{position:absolute;top:0;left:2rem;height:2rem;width:6rem;z-index:9;color:#dfdfdf;font-size:0.6rem;line-height:2rem;background-color:transparent!important;}#audioCtr>span::selection{background-color:transparent;color:#dfdfdf;}`;
+            document.querySelectorAll('head')[0].appendChild(style);
+        }
+        document.body.appendChild(js);
+    </script>
+    <script src="./rsc/lib/add_CSSNode.js"></script>
+
+    <script>
+        localStorage.getItem('equipmentType') == 2 && (function () {
+            let div = document.createElement('div');
+            let span = document.createElement('span');
+            let audio = document.createElement('audio');
+
+            div.className = 'selectUnable';
+            audio.className = 'selectUnable';
+            span.className = 'selectUnable';
+
+            div.id = 'audioCtr';
+            document.body.appendChild(div);
+            div.appendChild(audio);
+            div.appendChild(span);
+
+            audio.setAttribute('controls', 'controls');
+            audio.setAttribute('loop', 'loop');
+            audio.id = 'audio';
+
+            window.addEventListener('load', function () {
+                audio = document.getElementById('audio');
+                audio.volume = 0.1;
+            })
+
+            div.onclick = function () {
+                switchSource();
+            }
+            div.addEventListener('selectstart', function (e) {
+                var e = e || window.event; //兼容处理
+                e.preventDefault(); //阻止默认事件
+            });
+            switchSource();
+
+            function switchSource() {
+                let num = ((Math.random() + 1) * (Math.random() + 1) * 17);
+                switch (parseInt(num) % 4) {
+                    case 0:
+                        audio.setAttribute('src', 'rsc/media/0001.mp3');
+                        break;
+                    case 1:
+                        audio.setAttribute('src', 'rsc/media/0002.mp3');
+                        break;
+                    case 2:
+                        audio.setAttribute('src', 'rsc/media/0003.mp3');
+                        break;
+                    default:
+                        audio.setAttribute('src', 'rsc/media/0004.mp3');
+                        break;
+                }
+            }
+
+            span.innerText = 'play';
+
+            // audio.volume = 0;
+            // console.log(audio.volume);
+        })();
+    </script>
+
+    <script src="../js/lnkTarget_old.js"></script>
+    <script src="./rsc/lib/Loaded_visualization.js"></script>
+</body>
+
+</html>

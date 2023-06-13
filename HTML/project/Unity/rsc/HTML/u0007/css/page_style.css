@@ -1,0 +1,52 @@
+img,
+video {
+    object-fit: cover;
+    -webkit-object-fit: cover;
+}
+s
+
+#bannerVideo {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    /* 透明度 */
+    opacity: 0.6;
+}
+
+#banner {
+    position: absolute;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+#shelter {
+    position: relative;
+    top: -4rem;
+    left: 0;
+    width: 100%;
+    height: 4rem;
+    background-image: linear-gradient(to bottom, transparent, rgb(198, 215, 255), rgb(198, 215, 255));
+    z-index: 1;
+}
+
+#b2 {
+    /* position: sticky;
+            -webkit-position: sticky; */
+    /* position: -webkit-sticky; */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#bv2 {
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+}
